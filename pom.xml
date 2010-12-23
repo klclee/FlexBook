@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.klclee.flexbook</groupId>
+    <artifactId>flexbook</artifactId>
+    <version>1.1</version>
+    <packaging>swc</packaging>
+    <name>Flex Book</name>
+
+    <properties>
+        <flex.version>4.1.0.16076</flex.version>
+        <debug>false</debug>
+    </properties>
+
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>3.7.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.adobe.flex</groupId>
+                        <artifactId>compiler</artifactId>
+                        <version>${flex.version}</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+                <extensions>true</extensions>
+                <configuration>
+                    <targetPlayer>10.0.0</targetPlayer>
+                    <debug>${debug}</debug>
+                    <configurationReport>${configurationReport}</configurationReport>
+                    <strict>${strict}</strict>
+                    <locales>
+                        <locale>en_US</locale>
+                    </locales>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>${flex.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+</project>
